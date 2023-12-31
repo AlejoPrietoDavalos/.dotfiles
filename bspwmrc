@@ -6,7 +6,25 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # TODO: Poner condicional, si no está ya en latam, que lo ponga en latam, o lenguaje por defecto.
 #setxkbmap -layout latam
 
-wm_monitors
+
+MONITOR_1="HDMI-0"
+MONITOR_2="DP-5"
+
+POS_1=0x0
+POS_2=1920x0
+RESOLUTION=1920x1080
+
+
+xrandr --output $MONITOR_1 --primary --mode $RESOLUTION --rotate normal --pos $POS_1
+xrandr --output $MONITOR_2 --mode $RESOLUTION --rotate normal --pos $POS_2 --right-of $MONITOR_1
+
+bspc monitor $MONITOR_1 -d 1 2 3 4 5
+bspc monitor $MONITOR_2 -d 6 7 8 9 0
+
+
+setxkbmap -layout latam
+
+
 
 
 ####################################################
@@ -38,14 +56,14 @@ bspc config gapless_monocle      true
 
 
 # Wallpapers (Elige el primero aleatoriamente).
-wm_wallpaper -r
+#####---> wm_wallpaper -r
 
 # Launch polybar
 $HOME/.config/polybar/launch.sh
 
 
 # PICOM
-picom --config $HOME/.config/picom/picom.conf &
+######---> picom --config $HOME/.config/picom/picom.conf &
 #picom -b
 
 
