@@ -1,0 +1,25 @@
+#!/bin/bash
+# Recordar borrar el tmp antes de salir del programa por si las dudas.
+# Ver como poner el path de screenshots como path del programa.
+tmp_screen=$SCREENSHOTS/tmp.png
+
+function delete_tmp { rm $tmp_screen 2>/dev/null; }
+function rename_tmp { mv $tmp_screen $1; }
+function copy_clipboard_tmp { xclip -selection clipboard -t image/png -i $tmp_screen; }
+
+
+case "$1" in
+    -s|--bbox) (scrot -q 100 -f -s $tmp_screen) && copy_clipboard_tmp;;
+    -u|--focused|--win) (scrot -q 100 -u $tmp_screen) && copy_clipboard_tmp;;
+    -m|--all) (scrot -q 100 -m $tmp_screen) && copy_clipboard_tmp;;
+    *) echo "Invalid flag"; delete_tmp; exit 1;;
+esac
+
+
+# Se guarda la imagen o elimina.
+if [[ $2 == "--save" ]]; then
+    name_saved=$SCREENSHOTS/$(date '+%d_%m_%Y_%H-%M-%S-%2N.png')
+    rename_tmp $name_saved
+else
+    delete_tmp; exit 0
+fi
