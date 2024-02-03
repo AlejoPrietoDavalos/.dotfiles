@@ -48,7 +48,7 @@ $HOME/.config/polybar/launch.sh
 setxkbmap -layout latam
 
 # PICOM
-picom --config $HOME/.config/picom/picom.conf &
+#picom --config $HOME/.config/picom/picom.conf &
 #picom -b
 
 
