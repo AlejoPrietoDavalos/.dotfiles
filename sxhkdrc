@@ -90,7 +90,7 @@ Print + {_,super,super + alt} + {_,ctrl}
 #  - brave
 #--------------------------------------
 super + ctrl + {_,shift} + {Return,KP_Enter}
-    brave {_,--incognito}{_,_}
+    brave-browser {_,--incognito}{_,_}
 
 #--------------------------------------
 #  - vscode
