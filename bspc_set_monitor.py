@@ -28,7 +28,9 @@ def main(
 if __name__ == "__main__":
     # TODO: Que obtenga los monitores encontrados, y que asigne los desktops dependiendo del número.
     # TODO: Luego hacer una herramienta que permita modificarlos en caso que estén mal asignados.
-    monitors = ["HDMI-0", "DP-5"]
+    import json
+    with open("monitors.json", "r") as f:
+        monitors = json.load(f)["monitors"]
     positions = ["0x0", "1920x0"]
     resolution = "1920x1080"
     main(
