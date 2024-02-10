@@ -36,3 +36,5 @@ if __name__ == "__main__":
         positions = positions,
         resolution = resolution
     )
+    from wallpaper import set_wall, get_random_wall
+    set_wall(get_random_wall())
