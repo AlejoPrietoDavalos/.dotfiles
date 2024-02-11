@@ -67,20 +67,21 @@ super + {d,Tab}
     rofi -show {run,_}
 
 #---------------------------------------
-#  - audio++/audio--/mute_unmute
+#  - mute_unmute/audio--/audio++/
 #---------------------------------------
 XF86Audio{Mute,Lower,Raise}{_,Volume,Volume}
     {{path_scripts}}/volume.sh {mute,decrease,increase} {_,_,_}
-#pamixer {--toggle-mute,--decrease,--increase} {_,5,5}
-
 
 #--------------------------------------
 #  - screenshot
 # Nota: No me deja bindear super + shift + alt + Print.
 # Parece que sxhkd flashea cuando bindeas Print, ver...
 #--------------------------------------
-Print + {_,super,super + alt} + {_,ctrl}
-    wm_screenshot {--bbox,--win,-m} {_,--save}
+#Print + {_,super,super + alt} + {_,ctrl}
+# ---> TODO: Mejorar.
+Print + {_,super,super+shift} + {_,ctrl}
+    python3 {{path_scripts}}/screenshot.py {bbox,focused,full_screen} {0,1}
+# {bbox,win,m}
 
 
 
