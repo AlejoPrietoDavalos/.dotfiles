@@ -70,7 +70,7 @@ super + {d,Tab}
 #  - audio++/audio--/mute_unmute
 #---------------------------------------
 XF86Audio{Mute,Lower,Raise}{_,Volume,Volume}
-    /home/pepocho/.config/sxhkd/scripts/volume.sh {mute,decrease,increase} {_,_,_}
+    {{path_scripts}}/volume.sh {mute,decrease,increase} {_,_,_}
 #pamixer {--toggle-mute,--decrease,--increase} {_,5,5}
 
 
