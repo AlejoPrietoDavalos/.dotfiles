@@ -21,5 +21,6 @@ Type=Application
 
 - Se debe cambiar el campo "Exec" para que ejecute start_bspwm.sh
 ```bash
-Exec=~/.config/bspwm/start_bspwm.sh
+# Reemplazar MY_USER con el usuario actual.
+Exec=/home/{{MY_USER}}/.config/bspwm/start_bspwm.sh
 ```

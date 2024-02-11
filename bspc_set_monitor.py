@@ -1,5 +1,7 @@
 from typing import List
+from pathlib import Path
 import subprocess
+import json
 
 from cmd_bspc import CommandsBSPWM
 
@@ -28,8 +30,8 @@ def main(
 if __name__ == "__main__":
     # TODO: Que obtenga los monitores encontrados, y que asigne los desktops dependiendo del número.
     # TODO: Luego hacer una herramienta que permita modificarlos en caso que estén mal asignados.
-    import json
-    with open("monitors.json", "r") as f:
+    path_monitors_json = Path.home() / ".config" / "bspwm" / "monitors.json"
+    with open(path_monitors_json, "r") as f:
         monitors = json.load(f)["monitors"]
     positions = ["0x0", "1920x0"]
     resolution = "1920x1080"
@@ -38,5 +40,6 @@ if __name__ == "__main__":
         positions = positions,
         resolution = resolution
     )
+    
     from wallpaper import set_wall, get_random_wall
     set_wall(get_random_wall())

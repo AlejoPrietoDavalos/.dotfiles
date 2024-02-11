@@ -3,11 +3,7 @@
 # en caso de no estarlo lo inicia.
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-$HOME/.dotfiles/commands/wm_monitors
-#source wm_monitors
-
-
-
+python3 $HOME/.config/bspwm/bspc_set_monitor.py
 
 
 ####################################################
@@ -29,15 +25,6 @@ bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-# Abrir spotify en tal ventana, mismo discord y whatsapp.
-# Ver de como crear un monitor invisible, y que se pueda switchear entre monitores.
-#bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Chromium desktop='^2'
-#bspc rule -a mplayer2 state=floating
-#bspc rule -a Kupfer.py focus=on
-#bspc rule -a Screenkey manage=off
-
-
 # Wallpapers (Elige el primero aleatoriamente).
 #####---> wm_wallpaper -r
 
@@ -56,9 +43,3 @@ picom --config $HOME/.config/picom/picom.conf &
 
 # Ver q hace esto.
 #xsetroot -cursor_name left_ptr &
-
-
-#if [[ $(xdg-settings get default-web-browser) != brave-browser.desktop ]]; then
-#    xdg-settings set default-web-browser brave-browser.desktop
-#fi
-
